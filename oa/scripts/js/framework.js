@@ -45,6 +45,10 @@ define(["jquery",
         $rootScope.$state = $state;
         $rootScope.$on('$stateChangeSuccess',function(){
             console.log("ui router state changed........");
+            var userLoginIsSuccess = localStorage.getItem("user.login.isSuccess");
+            if (!userLoginIsSuccess) {
+                $state.go("login");
+            }
         })
     }]);
 

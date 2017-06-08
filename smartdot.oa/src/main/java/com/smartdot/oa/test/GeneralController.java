@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GeneralController {
 	@RequestMapping(value="index.do")  
     public void index_jsp(Model model){  
-        model.addAttribute("liming", "ÀèÃ÷ÄãºÃ");  
+        model.addAttribute("liming", "æ‚¨å¥½ï¼Œä¸–ç•Œ");  
         System.out.println("index.jsp");  
     } 
 	

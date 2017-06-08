@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.smartdot.oa.test.dao.AreaMapper" >
+  <resultMap id="BaseResultMap" type="com.smartdot.oa.test.entity.Area" >
+    <id column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="PAR_AREA_CODE" property="parAreaCode" jdbcType="VARCHAR" />
+    <result column="AREA_NAME" property="areaName" jdbcType="VARCHAR" />
+    <result column="EN_SPELL" property="enSpell" jdbcType="VARCHAR" />
+    <result column="LEVEL" property="level" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    AREA_CODE, PAR_AREA_CODE, AREA_NAME, EN_SPELL, LEVEL
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from td_b_area
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from td_b_area
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.smartdot.oa.test.entity.Area" >
+    insert into td_b_area (AREA_CODE, PAR_AREA_CODE, AREA_NAME, 
+      EN_SPELL, LEVEL)
+    values (#{areaCode,jdbcType=VARCHAR}, #{parAreaCode,jdbcType=VARCHAR}, #{areaName,jdbcType=VARCHAR}, 
+      #{enSpell,jdbcType=VARCHAR}, #{level,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.smartdot.oa.test.entity.Area" >
+    insert into td_b_area
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="parAreaCode != null" >
+        PAR_AREA_CODE,
+      </if>
+      <if test="areaName != null" >
+        AREA_NAME,
+      </if>
+      <if test="enSpell != null" >
+        EN_SPELL,
+      </if>
+      <if test="level != null" >
+        LEVEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parAreaCode != null" >
+        #{parAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="enSpell != null" >
+        #{enSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.smartdot.oa.test.entity.Area" >
+    update td_b_area
+    <set >
+      <if test="parAreaCode != null" >
+        PAR_AREA_CODE = #{parAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="enSpell != null" >
+        EN_SPELL = #{enSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        LEVEL = #{level,jdbcType=CHAR},
+      </if>
+    </set>
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.smartdot.oa.test.entity.Area" >
+    update td_b_area
+    set PAR_AREA_CODE = #{parAreaCode,jdbcType=VARCHAR},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      EN_SPELL = #{enSpell,jdbcType=VARCHAR},
+      LEVEL = #{level,jdbcType=CHAR}
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+  </update>
+</mapper>
