@@ -18,7 +18,7 @@ define(["jquery",
     ];
     var app = angular.module("app", relyModule);
 
-    var registerRoutes = function ( $stateProvider, $urlRouterProvider) {
+    var registerRoutes = function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.when("", "/login");
 
         $stateProvider
@@ -42,19 +42,18 @@ define(["jquery",
     app.config(["$stateProvider", "$urlRouterProvider", registerRoutes]);
 
     app.run(['$rootScope','$state',function($rootScope, $state){
+        $rootScope._webName = "/smartdot.oa";
         $rootScope.$state = $state;
         $rootScope.$on('$stateChangeSuccess',function(){
-            console.log("ui router state changed........");
-            var userLoginIsSuccess = localStorage.getItem("user.login.isSuccess");
-            if (!userLoginIsSuccess) {
+            var userLoginIsSuccess = sessionStorage.getItem("user.login.isSuccess");
+            if (userLoginIsSuccess != "TRUE") {
                 $state.go("login");
             }
-        })
+        });
     }]);
 
     app.controller("myAppCtrl",function($scope,$state){
         $scope.getController = function() {
-            console.log("getController......");
             $state.go("main");
         };
     });

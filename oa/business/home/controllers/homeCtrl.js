@@ -1,11 +1,10 @@
 define(["angular","js/directives/myNameDirct","js/directives/unorderedListDirct"],function(){
-    var homeCtrl = ["$scope", function ($scope) {
+    var homeCtrl = ["$rootScope","$scope", function ($rootScope,$scope) {
         $scope.title = "This is About page";
         $scope.userName="liMing66666.....77777777....";
+        //console.log("===home==$rootScope._webName===="+$rootScope._webName);
 
-        var testLocal = localStorage.getItem("testLocal");
-
-        console.log("testLocal.........."+testLocal);
+        
 
         $scope.testConsole = function(){
             console.log("homeCtrl..55555555....88888888888....");

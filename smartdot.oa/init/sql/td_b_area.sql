@@ -1,8 +1,8 @@
 CREATE TABLE `td_b_area` (
-	`AREA_CODE` varchar(50)  COMMENT 'ÇøÓò±àÂë',
-	`PAR_AREA_CODE` varchar(50)  COMMENT '¸¸ÇøÓò±àÂë',
-	`AREA_NAME` varchar(50)  COMMENT 'ÇøÓòÃû³Æ',
-	`EN_SPELL` varchar(50)  COMMENT 'Ó¢ÎÄ',
-	`LEVEL` varchar(50)  COMMENT '¼¶±ð',
+	`AREA_CODE` varchar(50)  COMMENT 'åŒºåŸŸç¼–ç ',
+	`PAR_AREA_CODE` varchar(50)  COMMENT 'çˆ¶åŒºåŸŸç¼–ç ',
+	`AREA_NAME` varchar(50)  COMMENT 'åŒºåŸŸåç§°',
+	`EN_SPELL` varchar(50)  COMMENT 'ç®€å†™',
+	`LEVEL` varchar(50)  COMMENT 'çº§åˆ«',
 	PRIMARY KEY (`AREA_CODE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = 'ÇøÓò±í';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = 'åŒºåŸŸè¡¨';
